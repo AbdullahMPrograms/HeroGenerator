@@ -61,9 +61,11 @@ def setup_output_folder():
     output_folder = "output"
     if os.path.exists(output_folder):
         for file_name in os.listdir(output_folder):
-            os.remove(os.path.join(output_folder, file_name))
-        os.rmdir(output_folder)
-    os.makedirs(output_folder)
+            file_path = os.path.join(output_folder, file_name)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+    else:
+        os.makedirs(output_folder)
     return output_folder
 
 def main():
