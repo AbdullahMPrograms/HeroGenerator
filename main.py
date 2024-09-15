@@ -45,7 +45,7 @@ def add_random_table(slide):
 
 def create_random_presentation(filename):
     prs = Presentation()
-    for _ in range(random.randint(3, 7)):  # 3 to 7 slides per presentation
+    for _ in range(random.randint(7, 14)):  # 7 to 14 slides per presentation
         slide_layout = prs.slide_layouts[random.randint(0, len(prs.slide_layouts) - 1)]
         slide = prs.slides.add_slide(slide_layout)
 
