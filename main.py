@@ -1,6 +1,7 @@
 import random
 import string
 import os
+import sys
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.enum.shapes import MSO_SHAPE
@@ -67,8 +68,7 @@ def setup_output_folder():
         os.makedirs(output_folder)
     return output_folder
 
-def main():
-    course_name = input("Enter the course name: ")
+def main(course_name):
     output_folder = setup_output_folder()
 
     for _ in range(10):
@@ -78,4 +78,9 @@ def main():
         print(f"Created: {full_path}")
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 1:
+        course_name = sys.argv[1]
+    else:
+        course_name = input("Enter the course name: ")
+
+    main(course_name)
